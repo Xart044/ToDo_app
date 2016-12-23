@@ -3,7 +3,7 @@ import { View, Text, Modal, Button, TextInput } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { editTask } from './../actions/taskActions'
+import { UpdateTasks } from './../actions/taskActions'
 
 class ModalEdit extends Component {
     state = {
@@ -16,7 +16,7 @@ class ModalEdit extends Component {
         }
         return el;
       });
-      this.props.editTask(newTasks);
+      this.props.UpdateTasks(newTasks);
       this.props.editHandler(false);
       this.setState({
         text: '' 
@@ -73,7 +73,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-      editTask: bindActionCreators(editTask,dispatch)
+      UpdateTasks: bindActionCreators(UpdateTasks,dispatch)
     }
 }
 

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import addtask from './../Remote_functions/task_add'
-import {AddNewTask} from './../actions/taskActions'
+import { UpdateTasks } from './../actions/taskActions'
 
 class InputInterface extends Component {
 	state = {
@@ -12,7 +12,7 @@ class InputInterface extends Component {
 	};
 	onButtonPress(){
 		if(this.state.text!==''){
-	  		this.props.AddNewTask(addtask(this.state.text,false,this.props.task.tasks));
+	  		this.props.UpdateTasks(addtask(this.state.text,false,this.props.task.tasks));
 	  		this.setState({
 	  			text: '' 
 	  		});
@@ -47,7 +47,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-    	AddNewTask: bindActionCreators(AddNewTask,dispatch)
+    	UpdateTasks: bindActionCreators(UpdateTasks,dispatch)
     }
 }
 

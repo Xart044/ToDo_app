@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { TextInput, Text, View, Button, TouchableHighlight } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { deleteTask, UpdateTasks } from './../actions/taskActions';
+import { UpdateTasks } from './../actions/taskActions';
 
 class Task extends Component {
 	onDeleteEvent(){
@@ -10,7 +10,7 @@ class Task extends Component {
 		this.props.task.tasks.filter((element)=>{
 			return element.id !== this.props.keyVal;
 		})
-		this.props.deleteTask(arrayAfterChange);
+		this.props.UpdateTasks(arrayAfterChange);
 	}
 	onEditEvent(){
 		this.props.modalObjHandler({text:this.props.text,id:this.props.keyVal});
@@ -66,7 +66,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-    	deleteTask: bindActionCreators(deleteTask,dispatch),
+    	UpdateTasks: bindActionCreators(UpdateTasks,dispatch),
     	UpdateTasks: bindActionCreators(UpdateTasks,dispatch)
     }
 }

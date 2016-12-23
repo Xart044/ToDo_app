@@ -11,7 +11,7 @@ class Layout extends Component {
         return ( 
         	<View>
 	            <InputInterface/>
-	            <TaskList tasks = {this.props.task.tasks} />
+	            <TaskList/>
             </View>
         );
     }
