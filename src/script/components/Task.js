@@ -6,7 +6,7 @@ import { UpdateTasks } from './../actions/taskActions';
 
 class Task extends Component {
 	onDeleteEvent(){
-		let arrayAfterChange = JSON.parse(this.props.task.taskArr);
+		let arrayAfterChange = JSON.parse(this.props.task.tasks);
 		console.log(arrayAfterChange.length);
 		arrayAfterChange = arrayAfterChange.filter((element)=>{
 			console.log(element.id,this.props.keyVal)
