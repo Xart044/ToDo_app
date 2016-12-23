@@ -5,13 +5,14 @@ import {
 
 const initialState = {
     tasks: [],
+    tasksArr: [],
     error: ''
 };
 
 export default function (state = initialState, action) {
     switch (action.type){
         case UPDATE_TASKS_SUCCESS:
-            return {...state, tasks: action.tasks, error: ''};
+            return {...state, tasks: action.tasks, tasksArr: action.tasks, error: ''};
             break;
         case UPDATE_TASKS_ERROR:
             return {...state, error: action.error};

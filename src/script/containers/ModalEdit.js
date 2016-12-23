@@ -10,13 +10,14 @@ class ModalEdit extends Component {
       text: ''
     };
     SaveModal(){
-      const newTasks = this.props.task.tasks.map((el, ind) => {
+      let newTasks = JSON.parse(this.props.task.tasksArr)
+      newTasks = newTasks.map((el, ind) => {
         if(el.id === this.props.obj.id){
           el.text = this.state.text;
         }
         return el;
       });
-      this.props.UpdateTasks(newTasks);
+      this.props.UpdateTasks(JSON.stringify(newTasks));
       this.props.editHandler(false);
       this.setState({
         text: '' 

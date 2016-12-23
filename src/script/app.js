@@ -5,6 +5,7 @@ import configureStore from './store/store';
 import Layout from './containers/Layout';
 
 const store = configureStore();
+console.disableYellowBox = true;
 
 class todo_app extends Component {
   render() {

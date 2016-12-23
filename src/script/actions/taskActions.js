@@ -3,13 +3,20 @@ import {
     UPDATE_TASKS_ERROR   
 } from '../constants/task'
 
+import { AsyncStorage } from 'react-native';
+
 export function UpdateTasks (array) {
     return function (dispatch) {
         try{
-            dispatch({
-                type: UPDATE_TASKS_SUCCESS,
-                tasks: array.reverse()
-            });
+            AsyncStorage.setItem('todo_app',array)
+            .then(()=>{
+                dispatch({
+                    type: UPDATE_TASKS_SUCCESS,
+                    tasks: array,
+                    tasksArr: JSON.parse(array)
+                });
+                console.log(tasks,tasksArr)
+            })
         }
         catch(e){
             dispatch({

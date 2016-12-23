@@ -6,11 +6,14 @@ import { UpdateTasks } from './../actions/taskActions';
 
 class Task extends Component {
 	onDeleteEvent(){
-		let arrayAfterChange = 
-		this.props.task.tasks.filter((element)=>{
+		let arrayAfterChange = JSON.parse(this.props.task.taskArr);
+		console.log(arrayAfterChange.length);
+		arrayAfterChange = arrayAfterChange.filter((element)=>{
+			console.log(element.id,this.props.keyVal)
 			return element.id !== this.props.keyVal;
 		})
-		this.props.UpdateTasks(arrayAfterChange);
+		console.log(arrayAfterChange.length);
+		this.props.UpdateTasks(JSON.stringify(arrayAfterChange));
 	}
 	onEditEvent(){
 		this.props.modalObjHandler({text:this.props.text,id:this.props.keyVal});
@@ -18,14 +21,14 @@ class Task extends Component {
 		console.log('pressed');
 	}
 	changeStatusHandler(){
-		let arrayAfterChange = 
-		this.props.task.tasks.map((el, ind)=>{
+		let arrayAfterChange = JSON.parse(this.props.task.tasksArr);
+		arrayAfterChange.map((el, ind)=>{
 			if(el.id ===this.props.keyVal){
 				el.done = !el.done;
 			}
 			return el;
 		})
-		this.props.UpdateTasks(arrayAfterChange);
+		this.props.UpdateTasks(JSON.stringify(arrayAfterChange));
 	}
 	render() {
 		return (
