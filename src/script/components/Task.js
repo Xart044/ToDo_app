@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TextInput, Text, View, Button, TouchableHighlight } from 'react-native';
+import { Text, View, Button, TouchableHighlight } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { UpdateTasks } from './../actions/taskActions';
@@ -7,18 +7,14 @@ import { UpdateTasks } from './../actions/taskActions';
 class Task extends Component {
 	onDeleteEvent(){
 		let arrayAfterChange = JSON.parse(this.props.task.tasks);
-		console.log(arrayAfterChange.length);
 		arrayAfterChange = arrayAfterChange.filter((element)=>{
-			console.log(element.id,this.props.keyVal)
 			return element.id !== this.props.keyVal;
 		})
-		console.log(arrayAfterChange.length);
 		this.props.UpdateTasks(JSON.stringify(arrayAfterChange));
 	}
 	onEditEvent(){
 		this.props.modalObjHandler({text:this.props.text,id:this.props.keyVal});
 		this.props.editHandler(true);
-		console.log('pressed');
 	}
 	changeStatusHandler(){
 		let arrayAfterChange = JSON.parse(this.props.task.tasksArr);

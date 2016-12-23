@@ -27,30 +27,14 @@ class TaskList extends Component {
         .then((value)=>{
             this.props.UpdateTasks(value);
         })
-        .catch(e=>console.log(e)) 
-        // AsyncStorage.removeItem('todo_app')      
+        .catch(e=>Alert.alert('Error',e))     
     }
-    // componentDidMount() {
-    //     console.log(this.props.task.tasks);
-    //     if(typeof this.props.task.tasks === 'string'){
-    //         this.setState({
-    //             tasks: JSON.parse(this.props.task.tasks)
-    //         });
-    //     } 
-    //     else{
-    //         this.setState({
-    //             tasks: this.props.task.tasks
-    //         });            
-    //     }
-    //     this.forceUpdate();      
-    // }
     render() {
-        let arr = this.props.task.tasksArr;
-        console.log(this.props.task.tasksArr, typeof this.props.task.tasksArr);
+        let arr = this.props.task.tasksArr,
+        TasksLayout;
         if(typeof this.props.task.tasksArr === 'string'){
             arr = JSON.parse(this.props.task.tasksArr);
         }
-        let TasksLayout;
         if(arr.length === 0){
             TasksLayout = <Text style={{'textAlign': 'center','fontSize': 32,'padding':20}}>Please, add some tasks</Text>
         }

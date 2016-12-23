@@ -1,7 +1,7 @@
 import {
     UPDATE_TASKS_SUCCESS,
     UPDATE_TASKS_ERROR 
-} from '../constants/task'
+} from '../constants/task';
 
 const initialState = {
     tasks: [],

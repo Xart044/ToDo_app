@@ -15,7 +15,6 @@ export function UpdateTasks (array) {
                     tasks: array,
                     tasksArr: JSON.parse(array)
                 });
-                console.log(tasks,tasksArr)
             })
         }
         catch(e){

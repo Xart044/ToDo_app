@@ -17,6 +17,9 @@ class InputInterface extends Component {
 	  			text: '' 
 	  		});
 		}
+		else{
+			Alert.alert('Error','Impossible to add empty task!')
+		}
 	};
     render() {
         return ( 
